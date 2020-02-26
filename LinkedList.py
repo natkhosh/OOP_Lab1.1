@@ -60,9 +60,7 @@ class LinkedList:
          Используется для вывода на экран
         :return: int
         """
-        return f" (Элементов: {self.size})"
-
-
+        return self.size
 
     def append(self, data):
         """
