@@ -54,14 +54,15 @@ class LinkedList:
             i += 1
         return s
 
-    @property
-    def list_size(self):
+    def __len__(self):
         """
         Метод, позволяющий посмотреть длину списка.
-        Используется для вывода на экран
+         Используется для вывода на экран
         :return: int
         """
         return f" (Элементов: {self.size})"
+
+
 
     def append(self, data):
         """
@@ -142,7 +143,7 @@ class LinkedList:
         """
         Поиск узла по узлу
         :param node: узел - int, str
-        :return: индекс - int  или список - list
+        :return: список - list, если элемент не найден - None
         """
         if not isinstance(node, (int, str)):
             raise TypeError
@@ -156,12 +157,13 @@ class LinkedList:
             i += 1
             current_node = current_node.next_node
 
-        if len(list_i) == 0:
-            return "Элемент не найден"
-        elif len(list_i) == 1:
+        if len(list_i) == 1:
             return list_i[0]
-        else:
+        elif len(list_i) < 1:
             return list_i
+        else:
+            print("Элемент не найден")
+            return None
 
     def remove(self, node):
         """
@@ -250,17 +252,17 @@ if __name__ == "__main__":
 
     l1.insert(12, 0)
     l1.insert(30, 0)
-    print(l1, l1.list_size)
+    print(l1, l1.__len__())
     l1.append(1)
-    print(l1, l1.list_size)
+    print(l1, l1.__len__())
     l1.append(3)
-    print(l1, l1.list_size)
+    print(l1, l1.__len__())
     # l1.append(5)
-    # print(l1, l1.list_size)
+    # print(l1, l1.__len__())
     # l1.append(1)
-    # print(l1, l1.list_size)
+    # print(l1,l1.__len__())
     # l1.insert(22, 6)
-    # print(l1, l1.list_size)
+    # print(l1, l1.__len__())
 
     print(l1.find(3))
 
@@ -268,13 +270,13 @@ if __name__ == "__main__":
     # print(l1._LinkedList__to_dict())
 
     # l1.delete(6)
-    # print(l1, l1.list_size)
+    # print(l1, l1.__len__())
 
     # l1.remove(12)
-    # print(l1, l1.list_size)
+    # print(l1, l1.__len__())
 
 
     # print('---')
     # l1.clear()
-    # print(l1, l1.list_size)
+    # print(l1, l1.__len__())
 
